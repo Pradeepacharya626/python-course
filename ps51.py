@@ -23,7 +23,7 @@ for index, quetion in enumerate(data):
     result = "Correct"
   else:
     result = "Wrong"
-  msg = f"Your Answer is {result} for quetion {index+1} - \
+  msg = f"Your Answer is {result} for quetion {index+1} -\
   Your answer :{quetion['user_choice']},\
   correct answer :{quetion['correct_answer']}"
 
