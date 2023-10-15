@@ -27,6 +27,8 @@ while True :
           row = f"{index+1}-{item}"
           print(row)
     case 'edit' :
+      file = open('ps.txt', 'r')
+      todos = file.readlines()
       number = int(input("Enter the todo to edit"))
       number = number-1
       new_todo = input("Enter new todo")
