@@ -1,29 +1,38 @@
                                                 # DAY18
 # implementation over ps60.py
+# use of time module
+# use of theme's
+# varing Button size
 
 import functions
 import PySimpleGUI as sg
+import time
 
+sg.theme("DarkPurple4")
+
+clock = sg.Text(key="time")
 label = sg.Text("Type in a todo")
 input_box = sg.InputText(tooltip="Enter a todo",key="todo")
-add_button = sg.Button("Add")
+add_button = sg.Button("Add",size=10)
 list_box = sg.Listbox(values=functions.get_todos(),
                       key='todos',enable_events=True,size=[45,15])
-edit_button = sg.Button("edit")
-complete_button = sg.Button("complete")
+edit_button = sg.Button("edit",size=[10,3])
+complete_button = sg.Button("complete",size=[10,3])
 exit_button = sg.Button("exit")
 
 window = sg.Window("My To-Do App",
-                   layout = [[label],[input_box,add_button],
+                   layout = [[clock],
+                             [label],
+                             [input_box,add_button],
                              [list_box,edit_button,complete_button],
                              [exit_button]],
                    font=("Helventica",15) )
 
 
 while True :
-    event,values=window.read()
-    print(event)
-    print(values)
+    event,values=window.read(timeout=200)
+    window["time"].update(value=time.strftime("%b %d,%Y %I:%M:%S %p"))
+
 
     match event :
         case "Add" :
