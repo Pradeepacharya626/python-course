@@ -3,6 +3,9 @@ import functions
 
 todos = functions.get_todos()
 
+#layout must be "centered" or "wide"
+st.set_page_config(layout="wide")
+
 def add_todo() :
     todo = st.session_state["new_todo"]+"\n"
     todos.append(todo)
@@ -11,7 +14,10 @@ def add_todo() :
 
 st.title("My Todo App")
 st.subheader("My to do list")
-st.write("select the todo")
+
+#we can use the html code for st.write
+st.write("this app increase your <b> productivity </b>",
+         unsafe_allow_html=True)
 
 for index,todo in enumerate(todos) :
     checkbox = st.checkbox(todo,key=todo)
@@ -24,5 +30,3 @@ for index,todo in enumerate(todos) :
 st.text_input(label="todo :",placeholder="new todo",
               on_change=add_todo,key="new_todo")
 
-# This line is not needed
-st.session_state
