@@ -1,7 +1,7 @@
                                         #DAY17
 
 import functions
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 label = sg.Text("Type in a todo")
 input_box = sg.InputText(tooltip="Enter a todo",key="todo")
