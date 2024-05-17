@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 
 option1 = sg.Radio("birds",group_id="quetion1")
